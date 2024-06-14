@@ -4,27 +4,24 @@
 	"description": "",
 	"main": "server.js",
 	"scripts": {
-	  "server": "nodemon backend/server.js",
-	  "start": "node server/server.js",
-	  "postinstall": "npm install --prefix frontend",
-	  "clean": "rm -rf frontend/node_modules && rm -f frontend/package-lock.json",
-	  "build": "npm run clean && npm run build --prefix frontend"
+		"server": "nodemon server/server.js",
+		"start": "node server/server.js",
+		"build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
 	},
 	"type": "module",
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-	  "bcryptjs": "^2.4.3",
-	  "cookie-parser": "^1.4.6",
-	  "dotenv": "^16.4.1",
-	  "express": "^4.18.2",
-	  "jsonwebtoken": "^9.0.2",
-	  "mongoose": "^8.1.1",
-	  "socket.io": "^4.7.4"
+		"bcryptjs": "^2.4.3",
+		"cookie-parser": "^1.4.6",
+		"dotenv": "^16.4.1",
+		"express": "^4.18.2",
+		"jsonwebtoken": "^9.0.2",
+		"mongoose": "^8.1.1",
+		"socket.io": "^4.7.4"
 	},
 	"devDependencies": {
-	  "nodemon": "^3.0.3"
+		"nodemon": "^3.0.3"
 	}
-  }
-  
+}
