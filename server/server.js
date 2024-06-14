@@ -8,14 +8,14 @@ import messageRoutes from "./routes/message.routes.js";
 import userRoutes from "./routes/user.routes.js";
 
 import connectDB from "./db/database.js";
-//import { app, server } from "./socket/socket.js";
+import { app, server } from "./socket/socket.js";
 
 dotenv.config();
 
 const __dirname = path.resolve();
 // PORT should be assigned after calling dotenv.config() because we need to access the env variables. Didn't realize while recording the video. Sorry for the confusion.
 const PORT = process.env.PORT || 5000;
-const app =express()
+
 app.use(express.json()); // to parse the incoming requests with JSON payloads (from req.body)
 app.use(cookieParser());
 
@@ -32,7 +32,7 @@ app.get("*", (req, res) => {
 async function startServer() {
     try {
      await connectDB();
-      app.listen(PORT || process.env.PORT, () => {
+      server.listen(PORT || process.env.PORT, () => {
         console.log(`Server listening at http://localhost:${PORT}`);
       });
     } catch (err) {

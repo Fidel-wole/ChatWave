@@ -1,6 +1,7 @@
 import Conversation from "../models/conversation.model.js";
-import Message from "../models/message.model.js"
-export default class MessaController {
+import Message from "../models/message.model.js";
+import { getReceiverSocketId, io } from "../socket/socket.js";
+export default class MessageController {
     static async sendMessage(req, res){
         try {
             const { message } = req.body;
@@ -27,18 +28,18 @@ export default class MessaController {
                 conversation.messages.push(newMessage._id);
             }
     
-            await conversation.save();
-            await newMessage.save();
+            // await conversation.save();
+            // await newMessage.save();
     
             
-            // await Promise.all([conversation.save(), newMessage.save()]);
+            await Promise.all([conversation.save(), newMessage.save()]);
     
             
-            // const receiverSocketId = getReceiverSocketId(receiverId);
-            // if (receiverSocketId) {
-            //     // io.to(<socket_id>).emit() used to send events to specific client
-            //     io.to(receiverSocketId).emit("newMessage", newMessage);
-            // }
+            const receiverSocketId = getReceiverSocketId(receiverId);
+            if (receiverSocketId) {
+                // io.to(<socket_id>).emit() used to send events to specific client
+                io.to(receiverSocketId).emit("newMessage", newMessage);
+            }
     
             res.status(201).json(newMessage);
         } catch (error) {
