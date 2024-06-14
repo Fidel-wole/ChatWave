@@ -7,7 +7,8 @@
 	  "server": "nodemon backend/server.js",
 	  "start": "node server/server.js",
 	  "postinstall": "npm install --prefix frontend",
-	  "build": "npm run build --prefix frontend"
+	  "clean": "rm -rf frontend/node_modules && rm -f frontend/package-lock.json",
+	  "build": "npm run clean && npm run build --prefix frontend"
 	},
 	"type": "module",
 	"keywords": [],
