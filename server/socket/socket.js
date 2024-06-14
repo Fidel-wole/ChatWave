@@ -7,7 +7,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
 	cors: {
-		origin: ["http://localhost:8000"],
+		origin: ["https://isolated-becka-cliqpod-149c9735.koyeb.app"],
 		methods: ["GET", "POST"],
 	},
 });
