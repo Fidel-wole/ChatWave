@@ -6,9 +6,7 @@ ChatWave is a simple, user-friendly chat application that allows real-time commu
 
 - **Real-time Messaging**: Instantly send and receive messages.
 - **User Authentication**: Secure login system to protect user data.
-- **Group Chats**: Create and join chat groups to stay connected with multiple friends or colleagues.
 - **Message History**: View past conversations.
-- **Typing Indicators**: See when others are typing.
 - **Online Status**: Know when your contacts are online.
 
 ## Installation
